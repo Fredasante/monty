@@ -1,0 +1,23 @@
+#include "monty.h"
+
+void *get_func(char *op, char *data, int line_num)
+{
+  int i;
+  int funcs = 7;
+
+  instruction_t funcs_list[] = {
+				 {"push", push_to_stack},
+				 {"pall", display},
+				 {"pint", print_top},
+				 {"pop", remove_top},
+				 {"swap", swap_nodes},
+				 {"add", sum_nodes},
+				 {"nop", do_nothing}
+  };
+
+  for (i = 0, i < funcs; i++)
+    {
+      if (funcs_list[i].opcode == op)
+	return (funcs_list[i].f);
+    }
+}
